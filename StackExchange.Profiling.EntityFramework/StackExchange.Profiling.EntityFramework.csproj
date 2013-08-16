@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EFProfiledDbConnection.cs" />
+    <Compile Include="EFProfiledDbDataAdapter.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="EFProfiledOdbcProviderFactory.cs" />
     <Compile Include="EFProfiledOleDbProviderFactory.cs" />
     <Compile Include="EFProfiledSqlClientDbProviderFactory.cs" />
