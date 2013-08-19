@@ -1,3 +1,7 @@
+PLEASE NOTE: This is a fork from https://github.com/SamSaffron/MiniProfiler.
+
+=====================================
+
 This official clone of Mini Profiler
 
 We accept patches and pull requests here. 
