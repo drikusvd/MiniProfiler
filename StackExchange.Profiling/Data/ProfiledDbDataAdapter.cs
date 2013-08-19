@@ -125,6 +125,118 @@
             return result;
         }
 
+        public new int Fill(DataSet dataSet, string srcTable)
+        {
+            var adapter = (DbDataAdapter)_adapter;
+            if (_profiler == null || !_profiler.IsActive || !(base.SelectCommand is DbCommand))
+            {
+                return adapter.Fill(dataSet, srcTable);
+            }
+
+            int result;
+            var cmd = (DbCommand)base.SelectCommand;
+            _profiler.ExecuteStart(cmd, ExecuteType.Reader);
+            try
+            {
+                result = adapter.Fill(dataSet, srcTable);
+            }
+            catch (Exception e)
+            {
+                _profiler.OnError(cmd, ExecuteType.Reader, e);
+                throw;
+            }
+            finally
+            {
+                _profiler.ExecuteFinish(cmd, ExecuteType.Reader, TokenReader);
+            }
+
+            return result;
+        }
+
+        public new int Fill(DataSet dataSet, int startRecord, int maxRecords, string srcTable)
+        {
+            var adapter = (DbDataAdapter)_adapter;
+            if (_profiler == null || !_profiler.IsActive || !(base.SelectCommand is DbCommand))
+            {
+                return adapter.Fill(dataSet, startRecord, maxRecords, srcTable);
+            }
+
+            int result;
+            var cmd = (DbCommand)base.SelectCommand;
+            _profiler.ExecuteStart(cmd, ExecuteType.Reader);
+            try
+            {
+                result = adapter.Fill(dataSet, startRecord, maxRecords, srcTable);
+            }
+            catch (Exception e)
+            {
+                _profiler.OnError(cmd, ExecuteType.Reader, e);
+                throw;
+            }
+            finally
+            {
+                _profiler.ExecuteFinish(cmd, ExecuteType.Reader, TokenReader);
+            }
+
+            return result;
+        }
+
+        public new int Fill(DataTable dataTable)
+        {
+            var adapter = (DbDataAdapter)_adapter;
+            if (_profiler == null || !_profiler.IsActive || !(base.SelectCommand is DbCommand))
+            {
+                return adapter.Fill(dataTable);
+            }
+
+            int result;
+            var cmd = (DbCommand)base.SelectCommand;
+            _profiler.ExecuteStart(cmd, ExecuteType.Reader);
+            try
+            {
+                result = adapter.Fill(dataTable);
+            }
+            catch (Exception e)
+            {
+                _profiler.OnError(cmd, ExecuteType.Reader, e);
+                throw;
+            }
+            finally
+            {
+                _profiler.ExecuteFinish(cmd, ExecuteType.Reader, TokenReader);
+            }
+
+            return result;
+        }
+
+        public new int Fill(int startRecord, int maxRecords, params DataTable[] dataTables)
+        {
+            var adapter = (DbDataAdapter)_adapter;
+            if (_profiler == null || !_profiler.IsActive || !(base.SelectCommand is DbCommand))
+            {
+                return adapter.Fill(startRecord, maxRecords, dataTables);
+            }
+
+            int result;
+            var cmd = (DbCommand)base.SelectCommand;
+            _profiler.ExecuteStart(cmd, ExecuteType.Reader);
+            try
+            {
+                result = adapter.Fill(startRecord, maxRecords, dataTables);
+            }
+            catch (Exception e)
+            {
+                _profiler.OnError(cmd, ExecuteType.Reader, e);
+                throw;
+            }
+            finally
+            {
+                _profiler.ExecuteFinish(cmd, ExecuteType.Reader, TokenReader);
+            }
+
+            return result;
+        }
+
         /// <summary>
         /// Gets the parameters set by the user when executing an SQL SELECT statement.
         /// </summary>

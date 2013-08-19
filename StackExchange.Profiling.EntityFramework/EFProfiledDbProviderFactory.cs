@@ -109,7 +109,7 @@
         /// <returns>the data adapter.</returns>
         public override DbDataAdapter CreateDataAdapter()
         {
-            return new EFProfiledDbDataAdapter(_tail.CreateDataAdapter());
+            return new ProfiledDbDataAdapter(_tail.CreateDataAdapter());
         }
 
         /// <summary>
